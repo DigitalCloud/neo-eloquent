@@ -533,4 +533,14 @@ class Connection extends IlluminateConnection {
 
         return $result[0][0];
     }
+
+    /**
+     * @return \Illuminate\Database\Query\Builder|Builder
+     */
+    public function query()
+    {
+        return new Builder(
+            $this, $this->getQueryGrammar(), $this->getPostProcessor()
+        );
+    }
 }
